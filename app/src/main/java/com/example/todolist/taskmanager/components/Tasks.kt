@@ -1,3 +1,5 @@
+@file:Suppress("PreviewAnnotationInFunctionWithParameters", "ktlint:standard:import-ordering")
+
 package com.example.todolist.taskmanager.components
 
 import androidx.compose.foundation.BorderStroke
@@ -31,85 +33,95 @@ import com.example.todolist.ui.theme.blueish
 import com.example.todolist.ui.theme.blueish2
 import com.example.todolist.ui.theme.greenish
 
+@Suppress("ktlint:standard:function-naming")
 @Composable
+@Preview
 fun Tasks(task: Task) {
     val taskColor = listOf(blueish, blueish2, greenish).random()
     Row(
-        modifier = Modifier
-            .fillMaxWidth(),
+        modifier =
+            Modifier
+                .fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
             text = "${task.startTime}\nAM",
             fontFamily = FontFamily.Monospace,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
         )
 
         Row(
-            verticalAlignment = Alignment.CenterVertically
-        ){
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
             Box(
-                modifier = Modifier
-                    .size(16.dp)
-                    .clip(CircleShape)
-                    .border(
-                        border = BorderStroke(3.dp, Color.Black),
-                        shape = CircleShape
-                    )
+                modifier =
+                    Modifier
+                        .size(16.dp)
+                        .clip(CircleShape)
+                        .border(
+                            border = BorderStroke(3.dp, Color.Black),
+                            shape = CircleShape,
+                        ),
             )
             Divider(modifier = Modifier.width(6.dp), Color.Black)
 
-            Row (
-                modifier = Modifier
-                    .fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ){
+            Row(
+                modifier =
+                    Modifier
+                        .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 Column(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(14.dp))
-                        .background(taskColor)
-                        .weight(0.9f),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                    modifier =
+                        Modifier
+                            .clip(RoundedCornerShape(14.dp))
+                            .background(taskColor)
+                            .weight(0.9f),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     Text(
                         text = task.title,
                         fontFamily = FontFamily.Serif,
-                        modifier = Modifier
-                            .padding(
-                                start = 12.dp,
-                                top = 12.dp
-                            )
+                        modifier =
+                            Modifier
+                                .padding(
+                                    start = 12.dp,
+                                    top = 12.dp,
+                                ),
                     )
 
-                    if(task.body != null) {
+                    if (task.body != null) {
                         Text(
                             text = task.body,
                             fontFamily = FontFamily.Serif,
-                            modifier = Modifier
-                                .padding(
-                                    start = 12.dp,
-                                ),
-                            color = Color.LightGray
+                            modifier =
+                                Modifier
+                                    .padding(
+                                        start = 12.dp,
+                                    ),
+                            color = Color.LightGray,
                         )
                     }
 
                     Text(
                         text = "${task.startTime}-${task.endTime}",
                         fontFamily = FontFamily.Serif,
-                        modifier = Modifier
-                            .padding(
-                                start = 12.dp,
-                                bottom = 12.dp
-                            ),
+                        modifier =
+                            Modifier
+                                .padding(
+                                    start = 12.dp,
+                                    bottom = 12.dp,
+                                ),
                     )
                 }
 
                 Divider(
-                    modifier = Modifier
-                        .width(6.dp)
-                        .weight(0.1f),
-                    color = Color.Black
+                    modifier =
+                        Modifier
+                            .width(6.dp)
+                            .weight(0.1f),
+                    color = Color.Black,
                 )
             }
         }
